@@ -1,0 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+}
+
+body{
+    background-color: rgb(32, 67, 119); 
+    height: 100vh;
+}
+
+.container{
+    width: 100%;
+    max-width: 1320px;
+    padding: 2rem 1rem;
+}
+header .container{
+    display: flex;
+    flex-direction: column;
+}
+header .logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  gap: 5px;
+}
+.logo .logoIcon{
+    font-size: 35px;
+}
+header .container p{
+    color: white;
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+.wrapper{
+    width: 100%;
+    max-width: 600px;
+    height: 145px;
+    background-color: white;
+    padding: 2rem 2rem 0 2rem;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.wrapper.remove{
+    transform: translateX(-110%);
+    opacity: 0;
+}
+main .container{
+    position: relative;
+}
+.qr-scanner{
+    transform: translateX(-110%);
+    opacity: 0;
+    position: absolute;
+    top:10px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 90%;
+    margin: 0 auto;
+}
+.qr-scanner.active{
+    transform: translateX(0%);
+    opacity: 1;
+    display: block;
+}
+.wrapper.active {
+    height: auto;
+}
+.userInput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    position: relative;
+}
+
+.userInput  > input, button{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.userInput input{
+    border: 1px solid grey;
+}
+.closeBtn{
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    cursor: pointer;
+    display: none;
+}
+.userInput button{
+    background-color: rgb(32, 67, 119);
+    color: white;
+    cursor: pointer;
+}
+.userInput button:hover{
+    background-color: rgb(50, 91, 153);
+}
+
+.qr-image{
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 2rem;
+    opacity: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qr-section{
+position: relative;
+opacity: 0;
+height: 0;
+padding-bottom: 3rem;
+}
+.wrapper.active .qr-section{
+    opacity: 1;
+    height: auto;
+   
+}
+.qr-image img{
+    width: 100%;
+    
+}
+ .dowloadBtn{
+position: absolute;
+opacity: 0;
+bottom: 4px;
+left: 45%;
+right: 50%;
+font-size: 35px;
+cursor: pointer;
+}
+.dowloadBtn:hover{
+    color: rgb(32, 67, 119);
+}
+
+
+.wrapper.active  .dowloadBtn, .qr-image{
+    opacity: 1;
+}
+
+#reader{
+    background-color: white;
+}
+
+.scan-link{
+    text-align: center;
+    color: white;
+    background: none;
+    outline: none;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 5.8rem auto;
+    cursor: pointer;
+}
+.scan-link:hover{
+    box-shadow: 1px 1px 15px rgba(5, 6, 32, 0.432);
+}   
+
+@media screen and (min-width:996px){
+    header .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+}

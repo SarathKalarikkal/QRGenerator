@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <title>Qr Generator</title>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+     <div class="logo">
+        <span class="material-symbols-outlined logoIcon">qr_code</span>
+        <h2>QR Code <span>Generator</span></h2>
+     </div>
+     <p>Generate QR codes quickly or scanning existing QR codes with your device's camera. Whether it's a URL, text, or other information, you can generate or scan QR codes instantly..</p>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+        <div class="wrapper">
+            <div class="userInput">
+                <input type="text" placeholder="Enter the text or Url"><span class="material-symbols-outlined closeBtn"> close</span>
+                <button>Generate QR Code</button>
+            </div>
+            <div class="qr-section">
+              <div class="qr-image">
+                <img src="" alt="Qr-image" id="qrCode"> 
+              </div>
+             <span class="material-symbols-outlined dowloadBtn"> download</span>
+            </div>
+        </div>
+
+        <button class="scan-link"><span class="material-symbols-outlined">qr_code_scanner</span>Scan/upload QR</button>
+
+       <div class="qr-scanner">
+        <div id="reader"></div>
+        <div id="result"></div>
+       </div>
+
+    </div>
+  </main>
+
+
+
+  <script>
+    const scanner = new Html5QrcodeScanner('reader', {
+        qrbox: {
+            width: 250,
+            height: 250,
+        },
+        fps: 20,
+    });
+
+    scanner.render((result) => {
+        document.getElementById('result').innerHTML = `
+            <h2>Success</h2>
+            <p><a href="${result}">${result}</a></p>
+        `;
+        scanner.clear();
+        document.getElementById('reader').remove();
+    }, (error) => {
+        console.error(error);
+    });
+</script>
+
+ 
+    <script src="main.js"></script>
+</body>
+</html>
